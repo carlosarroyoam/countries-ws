@@ -15,7 +15,7 @@
   <artifactId>countries-ws</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>countries-ws</name>
-  <description>Demo project for Spring Boot</description>
+  <description>Spring Boot countries web service</description>
 
   <properties>
     <java.version>17</java.version>
