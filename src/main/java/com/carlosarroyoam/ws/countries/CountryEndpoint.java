@@ -1,7 +1,5 @@
-package com.carlosarroyoam.countries.ws.countries;
+package com.carlosarroyoam.ws.countries;
 
-import com.carlosarroyoam.ws.countries.GetCountryRequest;
-import com.carlosarroyoam.ws.countries.GetCountryResponse;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;

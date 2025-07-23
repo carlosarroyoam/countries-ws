@@ -1,8 +1,5 @@
-package com.carlosarroyoam.countries.ws.countries;
+package com.carlosarroyoam.ws.countries;
 
-import com.carlosarroyoam.ws.countries.Country;
-import com.carlosarroyoam.ws.countries.Currency;
-import com.carlosarroyoam.ws.countries.GetCountryResponse;
 import jakarta.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
