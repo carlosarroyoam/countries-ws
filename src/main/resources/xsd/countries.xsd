@@ -3,6 +3,19 @@
   targetNamespace="http://carlosarroyoam.com/ws/countries"
   elementFormDefault="qualified">
 
+  <xs:element name="getCountriesRequest">
+    <xs:complexType />
+  </xs:element>
+
+  <xs:element name="getCountriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="countries" type="tns:country"
+          maxOccurs="unbounded" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
   <xs:element name="getCountryRequest">
     <xs:complexType>
       <xs:sequence>
@@ -21,6 +34,7 @@
 
   <xs:complexType name="country">
     <xs:sequence>
+      <xs:element name="id" type="xs:int" />
       <xs:element name="name" type="xs:string" />
       <xs:element name="population" type="xs:int" />
       <xs:element name="capital" type="xs:string" />

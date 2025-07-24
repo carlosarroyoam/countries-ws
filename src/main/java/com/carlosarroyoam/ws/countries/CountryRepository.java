@@ -1,46 +1,53 @@
 package com.carlosarroyoam.ws.countries;
 
 import jakarta.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 @Component
-class CountryRepository {
+public class CountryRepository {
   private static final Map<String, Country> countries = new HashMap<>();
 
   @PostConstruct
   private void initData() {
     Country spain = new Country();
+    spain.setId(1);
     spain.setName("Spain");
     spain.setCapital("Madrid");
     spain.setCurrency(Currency.EUR);
     spain.setPopulation(46704314);
-
-    countries.put(spain.getName(), spain);
+    countries.put(spain.getName().toLowerCase(), spain);
 
     Country poland = new Country();
+    poland.setId(2);
     poland.setName("Poland");
     poland.setCapital("Warsaw");
     poland.setCurrency(Currency.PLN);
     poland.setPopulation(38186860);
-
-    countries.put(poland.getName(), poland);
+    countries.put(poland.getName().toLowerCase(), poland);
 
     Country uk = new Country();
+    uk.setId(3);
     uk.setName("United Kingdom");
     uk.setCapital("London");
     uk.setCurrency(Currency.GBP);
     uk.setPopulation(63705000);
-
-    countries.put(uk.getName(), uk);
+    countries.put(uk.getName().toLowerCase(), uk);
   }
 
-  GetCountryResponse findByName(String name) {
-    Assert.notNull(name, "The country's name must not be null");
+  public GetCountriesResponse findAll() {
+    GetCountriesResponse response = new GetCountriesResponse();
+    response.countries = new ArrayList<>(countries.values());
+    return response;
+  }
+
+  public GetCountryResponse findByName(GetCountryRequest request) {
+    Assert.notNull(request.getName(), "The country's name must not be null");
     GetCountryResponse response = new GetCountryResponse();
-    response.setCountry(countries.get(name));
+    response.setCountry(countries.get(request.getName().toLowerCase()));
     return response;
   }
 }
