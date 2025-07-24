@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 @Component
 public class CountryRepository {
@@ -45,7 +44,6 @@ public class CountryRepository {
   }
 
   public GetCountryResponse findByName(GetCountryRequest request) {
-    Assert.notNull(request.getName(), "The country's name must not be null");
     GetCountryResponse response = new GetCountryResponse();
     response.setCountry(countries.get(request.getName().toLowerCase()));
     return response;

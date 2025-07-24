@@ -8,21 +8,21 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class CountryEndpoint {
   private static final String NAMESPACE_URI = "http://carlosarroyoam.com/ws/countries";
-  private final CountryRepository countryRepository;
+  private final CountryService countryService;
 
-  public CountryEndpoint(CountryRepository countryRepository) {
-    this.countryRepository = countryRepository;
+  public CountryEndpoint(CountryService countryService) {
+    this.countryService = countryService;
   }
 
   @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountriesRequest")
   @ResponsePayload
   public GetCountriesResponse findAll(@RequestPayload GetCountriesRequest request) {
-    return countryRepository.findAll();
+    return countryService.findAll();
   }
 
   @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
   @ResponsePayload
   public GetCountryResponse findByName(@RequestPayload GetCountryRequest request) {
-    return countryRepository.findByName(request);
+    return countryService.findByName(request);
   }
 }
