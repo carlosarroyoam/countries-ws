@@ -14,6 +14,8 @@ import org.springframework.xml.xsd.XsdSchema;
 @Configuration
 @EnableWs
 public class WebServiceConfig {
+  public static final String NAMESPACE_URI = "http://carlosarroyoam.com/ws/countries";
+
   @Bean
   ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(
       ApplicationContext applicationContext) {
@@ -28,7 +30,7 @@ public class WebServiceConfig {
     DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
     wsdl11Definition.setPortTypeName("CountriesPort");
     wsdl11Definition.setLocationUri("/ws");
-    wsdl11Definition.setTargetNamespace("http://carlosarroyoam.com/ws/countries");
+    wsdl11Definition.setTargetNamespace(NAMESPACE_URI);
     wsdl11Definition.setSchema(countriesSchema);
     return wsdl11Definition;
   }
