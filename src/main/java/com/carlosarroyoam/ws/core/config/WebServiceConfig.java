@@ -1,4 +1,4 @@
-package com.carlosarroyoam.ws.config;
+package com.carlosarroyoam.ws.core.config;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
