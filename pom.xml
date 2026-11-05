@@ -18,7 +18,7 @@
   <description>Spring Boot countries web service</description>
 
   <properties>
-    <java.version>17</java.version>
+    <java.version>25</java.version>
   </properties>
 
   <dependencies>
